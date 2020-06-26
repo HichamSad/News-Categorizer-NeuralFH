@@ -1,0 +1,46 @@
+Datasets:
+BBC_TMN.csv -- consists of the examples from the bbc news and the TagMyNews examples (without the health class)
+BBC_TMN_cleaned.csv -- the cleaned, merged dataset (without the health class)
+BBC_TMN_HEALTH_cleaned -- the cleaned, merged dataset (with 250 added health examples from the helpingDataset.csv)
+
+helpingDataset.csv -- consists of 250 health examples, extracted from a third news-article dataset health_dataset.csv
+health_dataset.csv -- a third dataset to extract health-examples from
+
+News Classifier
+This program is constructed to predict the category of a news article automatically based on the extracted significant words of its written text.
+Categories:
+- politics
+- business
+- entertainments
+- tech
+- sports
+- health
+- world
+- us
+
+This notebook can be divided in a three parts.
+
+It first begins with a whole go through
+	- Prepare BBCNews and TagMyNews for merging
+	- Merge both datasets
+	- drop the "health" class
+	- clean the merged dataset
+	- build and train the models
+	- get information of the accuracy of both models
+Throughout this process, we tell a sort of "story" illustrate our observations during analyzing the data and our solutions to enhance the quality of our data to only provide our models with relevant parts of our data.
+
+Secondly, we take two interesting tools into account, IBMs AIX360 and Microsofts InterpretML. With the help of AIX360, we can illustrate and explain the prediction of our models. After executing the explanation process, we get an overview of which attributes had an influence in the final decision. Besides that, we also get to see the news article to classify and the highlighted significant words in it.
+By using Microsofts IntepretML, we fit a provided and explainable Decision Tree just to illustrate and visualize how the Decision Tree does handle the news articles. And we get to see how it splits the data on a certain feature until the impurity is close to zero.
+
+At last, we compacted our whole work into an object oriented construct. This NewsCategorizer class provides the function "datasetVariations()" to construct the variations of our dataset (merged, merged & cleaned, merged & cleaned & expanded with health examples) and automatically exports the datasets.
+This Categorizer also provides the method "evaluateModels()" to fit and evaluate the provided models automatically.
+We think that this construct is very helpful to get a compact look on our whole work and also the difference evaluation results for all three dataset variations.
+
+Fabian Ulmer and Hicham Saddiki
+
+
+
+
+
+- D. Greene and P. Cunningham. "Practical Solutions to the Problem of Diagonal Dominance in Kernel Document Clustering", Proc. ICML 2006.
+All rights, including copyright, in the content of the original articles are owned by the BBC.
